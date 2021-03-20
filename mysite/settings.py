@@ -9,7 +9,10 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+try:
+    from .settings_secret import *
+except ImportError:
+    pass
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'r(wum-5875-6d(#)1vjczr#oxqbrgf691j1&3uft^ia(^^sh4i'
+#SECRET_KEY は外部ファイルから読み込み
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
